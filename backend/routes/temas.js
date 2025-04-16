@@ -5,20 +5,19 @@ const multer = require('multer');
 const path = require('path');
 
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, 'public/uploads');
-    },
-    filename: function (req, file, cb) {
-        const ext = path.extname(file.originalname);
-        const name = Date.now() + ext;
-        cb(null, name);
-    }
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, '../../../uploads'));
+  },
+  filename: function (req, file, cb) {
+    const ext = path.extname(file.originalname);
+    const name = Date.now() + ext;
+    cb(null, name);
+  },
 });
 
 const upload = multer({ storage: storage });
 
 // Rota para cadastrar novo tema
-
 
 router.post('/criar', upload.single('img'), async (req, res) => {
   const { name, color } = req.body;
@@ -36,8 +35,10 @@ router.post('/criar', upload.single('img'), async (req, res) => {
         console.error('Erro ao inserir tema:', err);
         return res.status(500).json({ error: err.message });
       }
-      res.status(201).json({ message: 'Tema criado com sucesso', id: result.insertId });
-    }
+      res
+        .status(201)
+        .json({ message: 'Tema criado com sucesso', id: result.insertId });
+    },
   );
 });
 
