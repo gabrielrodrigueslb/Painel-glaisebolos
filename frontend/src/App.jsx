@@ -1,6 +1,7 @@
 import { useState } from "react"
 import axios from 'axios';
 import './app.scss'
+import RegisterModal from "../components/RegisterModal/RegisterModal";
 
 export default function App() {
   const [nome, setNome] = useState('');
@@ -56,6 +57,8 @@ export default function App() {
       <button type="submit">Cadastrar Tema</button>
     </form>
     </main>
+
+    <RegisterModal/>
     </>
   )
 }

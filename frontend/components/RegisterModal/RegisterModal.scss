@@ -1,0 +1,40 @@
+.cadastrar-bolo {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    color: #000;
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      
+  
+      label {
+        display: flex;
+        flex-direction: column;
+        font-weight: bold;
+        color: #000;
+      }
+  
+      input, button {
+        padding: 0.5rem;
+        font-size: 1rem;
+      }
+  
+      button {
+        background-color: #00a86b;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+  
+        &:hover {
+          background-color: #007a52;
+        }
+      }
+    }
+  }
+  
